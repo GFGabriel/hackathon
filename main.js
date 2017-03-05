@@ -1,23 +1,9 @@
-var map = document.querySelector('.map')
-
-map.addEventListener('click', function(event) {
-	console.log(event.target)
-  event.target.classList.toggle('fullscreen')
-})
-
-
-
-
-// var url = "http://api.wunderground.com/api/68e3e7c9b741eaf5/geolookup/conditions/q/";
-// var lat = '37.77999878';
-// var lon = '-122.41999817';
-//
-// url += lat + ',' + lon + '.json';
+//set default to Denver
 var myLatLng = {
   lat: 39.7558146,
   lng: -105.0426646
 };
-
+//control bottom ticker
 ScrollSpeed = 200;
    ScrollChars = 1
    ScrollValue = ''
@@ -31,7 +17,7 @@ ScrollSpeed = 200;
    }
    ScrollMarquee()
 
-
+//set up clickable map zoomed in on Dever
 function initMap() {
 
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -71,24 +57,7 @@ function initMap() {
     initMap();
     });
 }
-
-// $.get(url).then(function(data) {
-//   console.log(data.current_observation.wind_mph);
-//   console.log(data.current_observation.wind_dir);
-//   console.log(data.location.city);
-//   console.log(data.location.country);
-//   console.log(data.current_observation.local_time_rfc822);
-//
-//
-//   $('#location').text(data.location.city + ", " + data.location.state)
-//   $('#localTime').text('Local Time: ' + data.current_observation.local_time_rfc822)
-//   $('#windSpeed').text('Wind Speed: ' + data.current_observation.wind_mph + " MPH")
-//   $('#windDirection').text('Wind Direction: ' + data.current_observation.wind_dir)
-//
-//   setKiteHeight(data.current_observation.wind_mph)
-//
-// })
-
+//determine kite position based on mph of wind
 function setKiteHeight(speed) {
   var balloon = document.querySelector('.balloon')
   if (speed < 5) {
@@ -130,11 +99,11 @@ function setKiteHeight(speed) {
     balloon.classList.add('balloon')
   }
 }
-
+//get data from api on weather
 function checkWind(lat, lng) {
   var url = "http://api.wunderground.com/api/68e3e7c9b741eaf5/geolookup/conditions/q/" + lat + ',' + lng + '.json';
 
-// url += lat + ',' + lon + '.json';
+
 
   $.get(url).then(function(data) {
 // console.log(data);
