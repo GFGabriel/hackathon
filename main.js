@@ -101,7 +101,7 @@ function setKiteHeight(speed) {
 }
 //get data from api on weather
 function checkWind(lat, lng) {
-  var url = "https://galvanize-cors.herokuapp.com/http://api.wunderground.com/api/68e3e7c9b741eaf5/geolookup/conditions/q/" + lat + ',' + lng + '.json';
+  var url = "https://api.wunderground.com/api/68e3e7c9b741eaf5/geolookup/conditions/q/" + lat + ',' + lng + '.json';
 
 
 
